@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="css/style_index.css">
+    <script src="https://kit.fontawesome.com/1fb4c6612a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="container-box1">
+            <header>
+                <!-- <a class="menu-btn"><i class="fa fa-bars" aria-hidden="true"></i></a> -->
+                <div class="logo">
+                    <i class="fa fa-text-height" aria-hidden="true"></i>
+                    <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-dashcube" aria-hidden="true"></i>
+                    <a class="add-task"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                </div>
+            </header>
+            <div class="box1">
+                <div class="timeBx">
+                    <div id="hours">00</div>
+                    <div id="minutes">00</div>
+                    <div id="seconds">00</div>
+                    <div class="ap"><div id="ampm"></div></div>
+                </div>
+            </div>
+            <div class="box2">
+                <div class="calendar">
+                    <p id="monthName"></p>
+                    <p id="dayName"></p>
+                    <p id="dayNumber"></p>
+                    <p id="year"></p>
+                </div>
+            </div>
+            <div class="box3">
+                <div class="countBx">
+                    <h2><span class="task-ckd">0</span> de <span class="task-n-ckd">0</span> tarefas feitas</h2>
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container-box2">
+            <div class="box4">
+                <span></span>
+                <div class="todoBx">
+                    <div class="searchBx">
+                        <input type="text" placeholder="Localizar" class="search" id="search" autocomplete="off">
+                        <i class="fa fa-search searchBtn" aria-hidden="true"></i>
+                    </div>
+                    <div class="listBx">
+                        <ul id="list">
+                            <li class="task" dateOrder="2022-01-01">
+                                <div class="check">
+                                    <input type="checkbox" disabled class="checked">
+                                    <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                                </div>
+                                <h3 class="todo-name">Estudar Js Jquery</h3>
+                                <h4 class="date">01 Jan</h4>
+                                <a class="done"><i class="fa fa-check check-btn" aria-hidden="true"></i></a>
+                                <a class="remove"><i class="fa fa-times remove-btn" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="task" dateOrder="2022-02-02">
+                                <div class="check">
+                                    <input type="checkbox" disabled class="checked">
+                                    <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                                </div>
+                                <h3 class="todo-name">Sessão de cinema</h3>
+                                <h4 class="date">02 Fev</h4>
+                                <a class="done"><i class="fa fa-check check-btn" aria-hidden="true"></i></a>
+                                <a class="remove"><i class="fa fa-times remove-btn" aria-hidden="true"></i></a>
+                            </li>
+                            <!-- <li class="task" dateOrder="2022-03-03">
+                                <div class="check">
+                                    <input type="checkbox" disabled class="checked">
+                                    <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                                </div>
+                                <h3 class="todo-name">Dentista</h3>
+                                <h4 class="date">03 Mar</h4>
+                                <a class="done"><i class="fa fa-check check-btn" aria-hidden="true"></i></a>
+                                <a class="remove"><i class="fa fa-times remove-btn" aria-hidden="true"></i></a>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="add-menu">
+                <div class="todoBx2">
+                    <div class="listBx2">
+                        <h2>Nova tarefa</h2>
+                        <form class="formBxNew">
+                            <div class="inputBox">
+                                <input type="text" id="new-task"autocomplete="off" value="" required>
+                                <span>Título</span>
+                            </div>
+                            <div class="inputBox">
+                                <input type="date" id="new-date" min="2022-01-01" value="" required>
+                                <span>Data</span>
+                            </div>
+                            <a id="create">Criar</a>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
