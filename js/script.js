@@ -164,49 +164,40 @@ function dayColors() {
         let currentMonth = (Month < 10) ? '0' + Month : Month
                 
         // today
-        let dateToday = new Date().getDate()
+        let dateToday = 1
+        // let dateToday = new Date().getDate()
+        let dateDay = (dateToday < 10) ? '0' + dateToday : dateToday
         let today = document.querySelector('#date-2')
-        today.innerHTML = `${dateToday} ${convertDate(currentMonth)}`
+        today.innerHTML = `${dateDay} ${convertDate(currentMonth.toString())}`
         today.style.background = '#ffe39b'
         
         // yesterday
-        let dateYesterday = new Date().getDate() -1
+        let dateYesterdayN = dateToday -1
+        let dateYesterday = (dateYesterdayN < 10) ? '0' + dateYesterdayN : dateYesterdayN
         let yesterday = document.querySelector('#date-1')
-        yesterday.innerHTML = `${dateYesterday} ${convertDate(currentMonth)}`
+        yesterday.innerHTML = `${dateYesterday} ${convertDate(currentMonth.toString())}`
         yesterday.style.background = '#ff9d98'
         
-        // // tomorow
-        let dateTomorow = new Date().getDate() +1
-        // // let dateTomorow = 1
-        // let tomorow = document.querySelector('#date-3')
-        
-        // // next month
-        let nextMonthNumber = (dateTomorow == '01') ? (Number(currentMonth) +1) : currentMonth
-        // let nextMonth = nextMonthNumber.toString()
-        // let nextDay = (dateTomorow == '01') ? (dateTomorow = 1) : dateTomorow
-
-        // tomorow.innerHTML = `${nextDay} ${convertDate(nextMonth)}`
-
         let line = document.querySelectorAll('.task')
-        let line3 = document.querySelector('#line-3')
         let year = new Date().getFullYear()
-        let nextyear = (nextMonthNumber == '00') ? (Number(year) +1) : year
         var countDate = -1
+        zero = (dateToday < 10) ? '0' : ' '
         line.forEach(element => {
-                element.setAttribute('dateOrder', year + currentMonth + (dateToday + countDate))
+                element.setAttribute('dateOrder', year.toString() + (currentMonth + 1).toString() + zero + (dateToday + countDate).toString())
                 countDate++
         })
-        // line3.setAttribute('dateOrder', year + currentMonth + (dateToday + 1))
-        
 }
 
 
 function addColors() {
         let allToday = document.querySelectorAll('.date')
+        
         let dateToday = new Date().getDate()
+        let currentDay = (dateToday < 10) ? '0' + dateToday : dateToday
         let Month = new Date().getMonth()
         let currentMonth = (Month < 10) ? '0' + Month : Month
-        let dayCrrt = `${dateToday} ${convertDate(currentMonth)}`
+        let dayCrrt = `${currentDay} ${convertDate(currentMonth.toString())}`
+
         for (t of allToday) {
                 if (t.innerHTML == dayCrrt) {
                         t.style.background = '#ffe39b'
@@ -374,7 +365,6 @@ create.addEventListener('click', function() {
                 addColors()
                 order()
                 scroll()
-                console.log(document.querySelectorAll('.task').length)
         }else{
                 alert('Os Campos Título e Data nâo podem ser vazios!')
         }
