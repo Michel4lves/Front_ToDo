@@ -28,7 +28,7 @@ body {
 .container .container-box1 {
     position: relative;
     width: 30%;
-    min-height: 600px;
+    height: 600px;
     background: #095bd06e;
     display: flex;
     align-items: center;
@@ -206,8 +206,9 @@ body {
 }
 
 .container .container-box2 {
+    position: relative;
     display: flex;
-    width: 70%;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
 }
@@ -217,7 +218,7 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .container .container-box2 .box4 .todoBx {
@@ -227,7 +228,7 @@ body {
     flex-direction: column;
     gap: 40px;
     width: 90%;
-    height: 90%;
+    height: 600px;
     border: 5px solid #097cff;
     border-radius: 10px;
     background: #ff9b064b;
@@ -246,6 +247,7 @@ body {
 }
 
 .container .container-box2 .box4 .todoBx .searchBx .search {
+    position: relative;
     width: 50%;
     padding: 6px 10px;
     font-size: 18px;
@@ -260,13 +262,8 @@ body {
     outline: 0;
 }
 
-.container .container-box2 .box4 .todoBx .searchBx .search::before {
-    content: 'X';
-    position: absolute;
-    /* display: none; */
-}
-
-.container .container-box2 .box4 .todoBx .searchBx i {
+.container .container-box2 .box4 .todoBx .searchBx .search-ico,
+.container .container-box2 .box4 .todoBx .searchBx .search-ico-x {
     font-size: 23px;
     text-decoration: none;
     padding: 5px 10px;
@@ -277,12 +274,10 @@ body {
     font-weight: 700;
 }
 
-
-
-
-.container .container-box2 .box4 .todoBx .searchBx i:hover {
-    color: #fff;
-    background: #8d4194;
+.container .container-box2 .box4 .todoBx .searchBx .search-ico-x {
+    position: absolute;
+    right: 23%;
+    display: none;
 }
 
 .container .container-box2 .box4 .todoBx .listBx {
@@ -377,21 +372,22 @@ body {
 
 .container .container-box2 .add-menu {
     position: absolute;
-    width: 660px;
-    height: 100vh;
+    top: calc(50% - 300px);
+    width: 100%;
+    height: 600px;
     background: transparent;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: column;
     gap: 30px;
     z-index: 10;
-    transform: translatey(-110vh);
+    transform: translatex(-210vh);
     transition: 0.5s;
 }
 
 .container .container-box2 .add-menu.active {
-    transform: translateY(0);
+    transform: translatex(0);
 }
 
 .container .container-box2 .add-menu .todoBx2 {
@@ -401,22 +397,22 @@ body {
     justify-content: center;
     flex-direction: column;
     gap: 40px;
-    border-radius: 20px;
-    width: 70%;
-    height: 90%;
-    background: #6bc2bc;
-    transform: translate(-10px, 10px);
+    border-radius: 10px;
+    width: 90%;
+    height: 100%;
+    background: #6bc27e81;
+    border: 5px solid #f3a13d;
 }
 
 .container .container-box2 .add-menu .todoBx2 .listBx2 {
-    background: #fff;
+    background: #ffffffbd;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 30px;
     width: 80%;
-    height: 70%;
+    height: 90%;
     border-radius: 20px;
     padding: 40px 20px;
 }
@@ -450,7 +446,7 @@ body {
     border: none;
     outline: none;
     border-bottom: 1px solid #74043b;
-    background-color: #fff;
+    background: #ffffffbd;
 }
 
 .container .container-box2 .add-menu .formBxNew .inputBox span {
@@ -473,7 +469,12 @@ body {
     border: 1px solid #74043b;
     border-radius: 10px;
     color: #74043b;
-    background: #fff;
+    background: #ffffffbd;
     cursor: pointer;
     margin-top: 20px;
 }
+
+.container .container-box2 .add-menu .formBxNew #create:hover {
+    background: #f0b9d385;
+}
+
