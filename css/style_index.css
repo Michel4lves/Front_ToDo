@@ -10,17 +10,16 @@
 }
 
 body {
-    background: #74043b;
+    background-image: url(../img/bg.png);
     overflow: hidden;
 }
 
 .container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    height: 100vh;
-    max-width: 960px;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 1200px;
     margin: 0 auto;
     user-select: none;
     overflow: hidden;
@@ -28,14 +27,20 @@ body {
 
 .container .container-box1 {
     position: relative;
-    width: 300px;
-    height: 100%;
+    width: 30%;
+    min-height: 600px;
+    background: #095bd06e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    border: 5px solid #74043b;
+    border-radius: 10px;
 }
 
 .container .container-box1 header {
-    background: #ff4138;
     width: 100%;
-    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +49,6 @@ body {
 
 .container .container-box1 header .menu-btn {
     font-size: 50px;
-    color: #ffbe1b;
     cursor: pointer;
 }
 
@@ -75,9 +79,7 @@ body {
 }
 
 .container .container-box1 .box1 {
-    background: #72c042;
     width: 100%;
-    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,11 +96,15 @@ body {
     font-size: 4.5em;
     font-weight: 500;
     padding: 15px;
+    margin-left: 35px;
 }
 
 .container .container-box1 .box1 .timeBx div {
+    position: relative;
     width: 35%;
-    text-align: right;
+    text-align: center;
+    margin-left: 10px;
+    /* border: 1px solid red; */
 }
 
 .container .container-box1 .box1 .timeBx div:nth-child(3) {
@@ -115,18 +121,16 @@ body {
 
 .container .container-box1 .box1 .ap {
     position: absolute;
-    transform: translate(103px, -20px);
+    transform: translate(-20px, -20px);
     font-size: 0.5em;
-    right: 56px;
+    right: 55px;
 }
 
 .container .container-box1 .box2 {
-    background: #8d4194;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 40%;
 }
 
 .calendar {
@@ -170,9 +174,7 @@ body {
 }
 
 .container .container-box1 .box3 {
-    background: #1e4ec2;
     width: 100%;
-    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -182,7 +184,7 @@ body {
     width: 260px;
     height: 60px;
     border: 1px solid #ffbe1b;
-    background: #fff;
+    background: #ffffffb3;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -200,33 +202,22 @@ body {
     position: absolute;
     width: 258px;
     height: 58px;
-    background: #ffbe1b;
+    background: #ffff0cac;
 }
 
 .container .container-box2 {
     display: flex;
-    width: 660px;
+    width: 70%;
     height: 100vh;
     overflow: hidden;
 }
 
 .container .container-box2 .box4 {
-    background: #ffbe1b;
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.container .container-box2 .box4 span {
-    content: '';
-    position: absolute;
-    width: 475px;
-    height: 610px;
-    background: #69a39f;
-    border-radius: 20px;
-    transform: skew(-2deg, 2deg);
 }
 
 .container .container-box2 .box4 .todoBx {
@@ -235,10 +226,11 @@ body {
     justify-content: flex-start;
     flex-direction: column;
     gap: 40px;
-    border-radius: 20px;
-    width: 70%;
+    width: 90%;
     height: 90%;
-    background: #8bd6d1;
+    border: 5px solid #097cff;
+    border-radius: 10px;
+    background: #ff9b064b;
     z-index: 1;
 }
 
@@ -268,6 +260,12 @@ body {
     outline: 0;
 }
 
+.container .container-box2 .box4 .todoBx .searchBx .search::before {
+    content: 'X';
+    position: absolute;
+    /* display: none; */
+}
+
 .container .container-box2 .box4 .todoBx .searchBx i {
     font-size: 23px;
     text-decoration: none;
@@ -278,6 +276,9 @@ body {
     background: #fff;
     font-weight: 700;
 }
+
+
+
 
 .container .container-box2 .box4 .todoBx .searchBx i:hover {
     color: #fff;
