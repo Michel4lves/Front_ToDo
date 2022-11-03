@@ -162,22 +162,33 @@ function dayColors() {
         // current month
         let Month = new Date().getMonth()
         let currentMonth = (Month < 10) ? '0' + Month : Month
+
+        // Last Month
+        let lastMonthTake = new Date(new Date().getTime())
+        lastMonthTake.setMonth(Month -1)
+        let lastMonthN = lastMonthTake.getMonth()
+        let lastMonth = (lastMonthN < 10) ? '0' + lastMonthN : lastMonthN
                 
         // today
-        let dateToday = 1
-        // let dateToday = new Date().getDate()
+        let dateToday = new Date().getDate()
         let dateDay = (dateToday < 10) ? '0' + dateToday : dateToday
         let today = document.querySelector('#date-2')
         today.innerHTML = `${dateDay} ${convertDate(currentMonth.toString())}`
         today.style.background = '#ffe39b'
         
         // yesterday
-        let dateYesterdayN = dateToday -1
+        let dateYesterdayTake = new Date(new Date().getTime())
+        dateYesterdayTake.setDate(dateToday -1)
+        let dateYesterdayN = dateYesterdayTake.getDate()
         let dateYesterday = (dateYesterdayN < 10) ? '0' + dateYesterdayN : dateYesterdayN
+        let yesterdayMonth = ( dateToday == 1) ? lastMonth : currentMonth
+
+
         let yesterday = document.querySelector('#date-1')
-        yesterday.innerHTML = `${dateYesterday} ${convertDate(currentMonth.toString())}`
+        yesterday.innerHTML = `${dateYesterday} ${convertDate( yesterdayMonth.toString())}`
         yesterday.style.background = '#ff9d98'
-        
+
+        // set dateOrder
         let line = document.querySelectorAll('.task')
         let year = new Date().getFullYear()
         var countDate = -1
