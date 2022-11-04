@@ -367,7 +367,9 @@ create.addEventListener('click', function() {
                 list.insertAdjacentHTML('beforeend', `<li class="task" dateorder="${numberOrderDate}" id="line-${countLine}"><div class="check"><input type="checkbox" disabled class="checked" id="do-${countCheck}"><span><i class="fa fa-check" aria-hidden="true"></i></span></div><h3 class="todo-name">${taskTitle}</h3><h4 class="date">${taskDateConverted}</h4><a class="done"><i class="fa fa-check check-btn" aria-hidden="true" id="do-${countDone}"></i></a><a class="remove"><i class="fa fa-times remove-btn" aria-hidden="true" id="line-${countRemove}"></i></a></li>`)
                 
                 let menuActive = document.querySelector('.add-menu')
+                let addMenu = document.querySelector('.add-task')
                 menuActive.classList.remove('active')
+                addMenu.classList.remove('active')
                 document.querySelector('#new-task').value = ""
                 document.querySelector('#new-date').value = ""
 
