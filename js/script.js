@@ -263,6 +263,7 @@ function menuAdd() {
         addMenu.addEventListener('click', function() {
                 let menuActive = document.querySelector('.add-menu')
                 menuActive.classList.toggle('active')
+                addMenu.classList.toggle('active')
         })
 }
 

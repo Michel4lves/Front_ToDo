@@ -34,7 +34,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     border: 5px solid #74043b;
     border-radius: 10px;
 }
@@ -47,26 +47,15 @@ body {
     gap: 30px;
 }
 
-.container .container-box1 header .menu-btn {
-    font-size: 50px;
-    cursor: pointer;
-}
-
 .container .container-box1 header .logo {
     display: flex;
     justify-content: center;
-    align-items: baseline;
-    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.container .container-box1 header .logo i {
-    font-size: 25px;
-    color: #fff;
-    font-weight: 700;
-}
-
-.container .container-box1 header .logo i:nth-child(1) {
-    font-size: 40px;
+.container .container-box1 header .logo img {
+    width: 180px; 
 }
 
 .container .container-box1 header .logo .add-task i {
@@ -76,6 +65,12 @@ body {
     border-radius: 50%;
     border: none;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.container .container-box1 header .logo .add-task.active i {
+    transform: rotate(45deg);
+    color: #ff6331;
 }
 
 .container .container-box1 .box1 {
