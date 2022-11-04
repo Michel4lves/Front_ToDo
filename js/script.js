@@ -389,10 +389,8 @@ function search() {
                 find.forEach(function(element) {
                         let el = element.innerHTML.toLowerCase()
                         let val = search.value.toLowerCase()
-                        console.log(el)
-                        console.log(val)
                         if (el.search(val) != -1) {
-                                element.style.background = '#ccc'
+                                element.style.background = '#6bc27e81'
                         }else{
                                 element.style.background = '#fff'
                         }
@@ -400,6 +398,18 @@ function search() {
                                 element.removeAttribute("style")
                         }
                 })
+                let clearBtn = document.querySelector('.search-ico-x')
+                if (search.value != '') {
+                        clearBtn.style.display = 'block'
+                        clearBtn.addEventListener('click', function() {
+                                search.value = ''
+                                clearBtn.style.display = 'none'
+                                let find = document.querySelectorAll('.todo-name')
+                                find.forEach(function(element) {
+                                        element.removeAttribute("style")
+                                })
+                        })
+                }
         })
 }
 

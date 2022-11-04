@@ -215,7 +215,6 @@ body {
 
 .container .container-box2 .box4 {
     width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -232,7 +231,6 @@ body {
     border: 5px solid #097cff;
     border-radius: 10px;
     background: #ff9b064b;
-    z-index: 1;
 }
 
 .container .container-box2 .box4 .todoBx .searchBx {
@@ -276,8 +274,10 @@ body {
 
 .container .container-box2 .box4 .todoBx .searchBx .search-ico-x {
     position: absolute;
-    right: 23%;
+    right: 25%;
+    border: none;
     display: none;
+    cursor: pointer;
 }
 
 .container .container-box2 .box4 .todoBx .listBx {
@@ -405,7 +405,7 @@ body {
 }
 
 .container .container-box2 .add-menu .todoBx2 .listBx2 {
-    background: #ffffffbd;
+    background: #ffffffeb;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -445,7 +445,7 @@ body {
     color: #333;
     border: none;
     outline: none;
-    border-bottom: 1px solid #74043b;
+    border-bottom: 2px solid #74043b;
     background: #ffffffbd;
 }
 
@@ -465,8 +465,8 @@ body {
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding: 5px 10px;
-    border: 1px solid #74043b;
+    padding: 5px 15px;
+    border: 2px solid #74043b;
     border-radius: 10px;
     color: #74043b;
     background: #ffffffbd;
@@ -478,3 +478,107 @@ body {
     background: #f0b9d385;
 }
 
+@media (max-width: 1200px) {
+    .container .container-box2 .box4 .todoBx {
+        width: 100%;
+    }
+    
+    .container .container-box2 .add-menu .todoBx2 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 960px) {
+    body {
+        overflow: scroll;
+    }
+
+    .container {
+        flex-direction: column;
+        height: 1010px;
+    }
+
+    .container .container-box1 {
+        width: 90%;
+        height: 400px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 20px 0;
+    }
+
+    .container .container-box1 header,
+    .container .container-box1 .box1,
+    .container .container-box1 .box2,
+    .container .container-box1 .box3 {
+        width: 300px;
+    }
+
+    .container .container-box2 .box4 {
+        justify-content: center;
+        align-items: flex-start;
+        height: 650px;
+    }
+    
+    .container .container-box2 .box4 .todoBx {
+        width: 90%;
+        height: 600px;
+    }
+    
+    .container .container-box2 .add-menu .todoBx2 {
+        width: 90%;
+    }
+
+    .container .container-box2 .add-menu {
+        align-items: center;
+        top: 0;
+        transform: translateX(0);
+        transform: translateY(-210vh);
+    }
+}
+
+@media (max-width: 720px) {
+    .container {
+        height: 1170px;
+    }
+
+    .container .container-box1 {
+        height: 600px;
+        flex-direction: column;
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 470px) {
+    .container .container-box1 {
+        width: 100%;
+    }
+
+    .container .container-box1 header,
+    .container .container-box1 .box1,
+    .container .container-box1 .box2,
+    .container .container-box1 .box3 {
+        width: 280px;
+    }
+
+    .container .container-box2 .box4 .todoBx {
+        width: 100%;
+    }
+    
+    .container .container-box2 .add-menu .todoBx2 {
+        width: 100%;
+    }
+
+    .container .container-box2 .box4 .todoBx .listBx ul li {
+        flex-wrap: wrap;
+    }
+
+    .container .container-box2 .box4 .todoBx .listBx ul li .todo-name {
+        width: 80%;
+    }
+
+    .container .container-box2 .box4 .todoBx .listBx ul li .date {
+        width: 40%;
+        text-align: center;
+        color: #333;
+    }
+}
