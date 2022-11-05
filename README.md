@@ -1,8 +1,14 @@
 
 ---
 
-# Welcome to TODO!
+# Welcome to TODO! <img style="margin-left: 30px" src="img/languages/eua.png" alt="eua.png" height="30" />
+
 Front End Project of a To Do List page with the objective of putting into practice knowledge of Html, Css and JavaScript.
+
+Access the page project here:
+https://michel4lves.github.io/Front_ToDo/
+
+---
 
 This is a working To Do system that contains:
 - Digital watch;
@@ -54,8 +60,13 @@ The project responds to the screen size, and can also be accessed on mobile devi
 
 ---
 
-# Bem vindo ao TODO!
+# Bem vindo ao TODO! <img style="margin-left: 30px" src="img/languages/brasil.png" alt="brasil.png" height="25" />
 Projeto Front End de uma página To Do List com objetivo de colocar em prática conhecimentos de Html, Css e JavaScript.
+
+Accesse a página do projeto aqui:
+https://michel4lves.github.io/Front_ToDo/
+
+---
 
 Essa é um sistema To Do funcional que contém:
 - Relógio digital;
