@@ -533,11 +533,11 @@ body {
 
 @media (max-width: 720px) {
     .container {
-        height: 1170px;
+        height: 1220px;
     }
 
     .container .container-box1 {
-        height: 600px;
+        height: 700px;
         flex-direction: column;
         padding: 20px 0;
     }
