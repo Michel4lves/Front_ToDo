@@ -1,45 +1,45 @@
 // Calendar
-const lang = navigator.language
-        let date = new Date()
+// const lang = navigator.language
+//         let date = new Date()
 
-        let dayNumber = date.getDate()
-        let month = date.getMonth()
-        let dayName = date.toLocaleString(lang, {weekday: 'long'})
-        let monthName = date.toLocaleString(lang, {month: 'long'})
-        let year = date.getFullYear()
+//         let dayNumber = date.getDate()
+//         let month = date.getMonth()
+//         let dayName = date.toLocaleString(lang, {weekday: 'long'})
+//         let monthName = date.toLocaleString(lang, {month: 'long'})
+//         let year = date.getFullYear()
 
-        document.getElementById('monthName').innerHTML = monthName
-        document.getElementById('dayName').innerHTML = dayName
-        document.getElementById('dayNumber').innerHTML = dayNumber
-        document.getElementById('year').innerHTML = year
+//         document.getElementById('monthName').innerHTML = monthName
+//         document.getElementById('dayName').innerHTML = dayName
+//         document.getElementById('dayNumber').innerHTML = dayNumber
+//         document.getElementById('year').innerHTML = year
 
 // clock
-setInterval(() => {
-        var h = new Date().getHours()
-        var h24 = new Date().getHours()
-        if (h > 12) {
-                var h = new Date().getHours() - 12
-        }
-        let m = new Date().getMinutes()
-        let s = new Date().getSeconds()
+// setInterval(() => {
+//         var h = new Date().getHours()
+//         var h24 = new Date().getHours()
+//         if (h > 12) {
+//                 var h = new Date().getHours() - 12
+//         }
+//         let m = new Date().getMinutes()
+//         let s = new Date().getSeconds()
 
-        // add zero before single digit number
-        h = (h < 10) ? '0' + h : h
-        m = (m < 10) ? '0' + m : m
-        s = (s < 10) ? '0' + s : s
+//         // add zero before single digit number
+//         h = (h < 10) ? '0' + h : h
+//         m = (m < 10) ? '0' + m : m
+//         s = (s < 10) ? '0' + s : s
 
-        let hours = document.getElementById("hours")
-        let minutes = document.getElementById("minutes")
-        let seconds = document.getElementById("seconds")
-        let ampm = document.getElementById("ampm")
+//         let hours = document.getElementById("hours")
+//         let minutes = document.getElementById("minutes")
+//         let seconds = document.getElementById("seconds")
+//         let ampm = document.getElementById("ampm")
 
-        let am = h24 >= 12 ? 'PM' : 'AM'
+//         let am = h24 >= 12 ? 'PM' : 'AM'
 
-        hours.innerHTML = h
-        minutes.innerHTML = m
-        seconds.innerHTML = s
-        ampm.innerHTML = am
-})
+//         hours.innerHTML = h
+//         minutes.innerHTML = m
+//         seconds.innerHTML = s
+//         ampm.innerHTML = am
+// })
 
 // set atributes line
 function setAttributeLine() {
@@ -200,72 +200,73 @@ function dayColors() {
 }
 
 
-function addColors() {
-        let allToday = document.querySelectorAll('.date')
+// function addColors() {
+//         let allToday = document.querySelectorAll('.date')
         
-        let dateToday = new Date().getDate()
-        let currentDay = (dateToday < 10) ? '0' + dateToday : dateToday
-        let Month = new Date().getMonth()
-        let currentMonth = (Month < 10) ? '0' + Month : Month
-        let dayCrrt = `${currentDay} ${convertDate(currentMonth.toString())}`
+//         let dateToday = new Date().getDate()
+//         let currentDay = (dateToday < 10) ? '0' + dateToday : dateToday
+//         let Month = new Date().getMonth()
+//         let currentMonth = (Month < 10) ? '0' + Month : Month
+//         let dayCrrt = `${currentDay} ${convertDate(currentMonth.toString())}`
 
-        for (t of allToday) {
-                if (t.innerHTML == dayCrrt) {
-                        t.style.background = '#ffe39b'
-                }
-        }
-}
+//         for (t of allToday) {
+//                 if (t.innerHTML == dayCrrt) {
+//                         t.style.background = '#ffe39b'
+//                 }
+//         }
+// }
 
 
-// checked
-function checked() {
-        document.querySelectorAll(".check-btn").forEach( function(button) {
-                button.addEventListener("click", function(event) {
-                        let el = event.target || event.srcElement;
-                        let id = el.id;
-                        // alert(id);
-                        el.style.display = 'none'
-                        let check = document.querySelectorAll('.checked')
-                        check.forEach(elementChk => {
-                                if (elementChk.id == id) {
-                                        elementChk.setAttribute('checked', 'checked')
-                                        elementChk.classList.add('chkd')
-                                }
-                        });
-                        countTasksChecked()
-                });
-        });
-}
+// // checked
+// function checked() {
+//         document.querySelectorAll(".check-btn").forEach( function(button) {
+//                 button.addEventListener("click", function(event) {
+//                         let el = event.target || event.srcElement;
+//                         let id = el.id;
+//                         // alert(id);
+//                         el.style.display = 'none'
+//                         let check = document.querySelectorAll('.checked')
+//                         check.forEach(elementChk => {
+//                                 if (elementChk.id == id) {
+//                                         elementChk.setAttribute('checked', 'checked')
+//                                         elementChk.classList.add('chkd')
+//                                 }
+//                         });
+//                         countTasksChecked()
+//                 });
+//         });
+// }
 
-// Remove Line
-function removeLine() {
-        document.querySelectorAll(".remove-btn").forEach( function(button) {
-                button.addEventListener("click", function(event) {
-                        let el = event.target || event.srcElement;
-                        let id = el.id;
-                        // alert(id);
-                        el.style.display = 'none'
-                        let removeLine = document.querySelectorAll('.task')
-                        removeLine.forEach(elementLine => {
-                                if (elementLine.id == id) {
-                                        elementLine.remove()
-                                }
-                        });
-                        countTasksChecked()
-                });
-        });
-}
+
+// // Remove Line
+// function removeLine() {
+//         document.querySelectorAll(".remove-btn").forEach( function(button) {
+//                 button.addEventListener("click", function(event) {
+//                         let el = event.target || event.srcElement;
+//                         let id = el.id;
+//                         // alert(id);
+//                         el.style.display = 'none'
+//                         let removeLine = document.querySelectorAll('.task')
+//                         removeLine.forEach(elementLine => {
+//                                 if (elementLine.id == id) {
+//                                         elementLine.remove()
+//                                 }
+//                         });
+//                         countTasksChecked()
+//                 });
+//         });
+// }
 
 
 // Menu Add
-function menuAdd() {
-        let addMenu = document.querySelector('.add-task')
-        addMenu.addEventListener('click', function() {
-                let menuActive = document.querySelector('.add-menu')
-                menuActive.classList.toggle('active')
-                addMenu.classList.toggle('active')
-        })
-}
+// function menuAdd() {
+//         let addMenu = document.querySelector('.add-task')
+//         addMenu.addEventListener('click', function() {
+//                 let menuActive = document.querySelector('.add-menu')
+//                 menuActive.classList.toggle('active')
+//                 addMenu.classList.toggle('active')
+//         })
+// }
 
 
 // today
@@ -282,37 +283,37 @@ function today() {
 }
 
 
-function order() {
-        // Seleciona as divs que queremos ordenar
-        var divs = document.querySelectorAll('#list .task')
-        // Converte a NodeList de divs para array
-        var order = [].map.call(divs, function(element) {
-                return element
-        });
-        // Ordena a array pelo atributo 'dateorder'
-        order.sort(function(a,b) {
-                var ca = parseInt(a.getAttribute('dateorder'), 10);
-                var cb = parseInt(b.getAttribute('dateorder'), 10);
-                return ca - cb
-        })
-        // Reinsere os filhos no pai, resultando na ordem desejada
-        var container = document.querySelector('#list')
-        for(var i=0; i<order.length; i++) {
-                container.appendChild(order[i])
-        }
-}
+// function order() {
+//         // Seleciona as divs que queremos ordenar
+//         var divs = document.querySelectorAll('#list .task')
+//         // Converte a NodeList de divs para array
+//         var order = [].map.call(divs, function(element) {
+//                 return element
+//         });
+//         // Ordena a array pelo atributo 'dateorder'
+//         order.sort(function(a,b) {
+//                 var ca = parseInt(a.getAttribute('dateorder'), 10);
+//                 var cb = parseInt(b.getAttribute('dateorder'), 10);
+//                 return ca - cb
+//         })
+//         // Reinsere os filhos no pai, resultando na ordem desejada
+//         var container = document.querySelector('#list')
+//         for(var i=0; i<order.length; i++) {
+//                 container.appendChild(order[i])
+//         }
+// }
 
 
-function scroll() {
-        let over = document.querySelector('.listBx')
-        let full = document.querySelectorAll('.task').length
-        if (full >= 10) {
-                alert('Você já têm coisas demais a fazer! Alivie um pouco a pessão!!!')
-                over.style.overflow = 'scroll'
-        }else{
-                over.removeAttribute("style")
-        }
-}
+// function scroll() {
+//         let over = document.querySelector('.listBx')
+//         let full = document.querySelectorAll('.task').length
+//         if (full >= 10) {
+//                 alert('Você já têm coisas demais a fazer! Alivie um pouco a pessão!!!')
+//                 over.style.overflow = 'scroll'
+//         }else{
+//                 over.removeAttribute("style")
+//         }
+// }
 
 
 // Create button
@@ -385,36 +386,36 @@ create.addEventListener('click', function() {
 })
 
 
-function search() {
-        let search = document.querySelector('.search')
-        search.addEventListener('input', function() {
-                let find = document.querySelectorAll('.todo-name')
-                find.forEach(function(element) {
-                        let el = element.innerHTML.toLowerCase()
-                        let val = search.value.toLowerCase()
-                        if (el.search(val) != -1) {
-                                element.style.background = '#6bc27e81'
-                        }else{
-                                element.style.background = '#fff'
-                        }
-                        if (val == '') {
-                                element.removeAttribute("style")
-                        }
-                })
-                let clearBtn = document.querySelector('.search-ico-x')
-                if (search.value != '') {
-                        clearBtn.style.display = 'block'
-                        clearBtn.addEventListener('click', function() {
-                                search.value = ''
-                                clearBtn.style.display = 'none'
-                                let find = document.querySelectorAll('.todo-name')
-                                find.forEach(function(element) {
-                                        element.removeAttribute("style")
-                                })
-                        })
-                }
-        })
-}
+// function search() {
+//         let search = document.querySelector('.search')
+//         search.addEventListener('input', function() {
+//                 let find = document.querySelectorAll('.todo-name')
+//                 find.forEach(function(element) {
+//                         let el = element.innerHTML.toLowerCase()
+//                         let val = search.value.toLowerCase()
+//                         if (el.search(val) != -1) {
+//                                 element.style.background = '#6bc27e81'
+//                         }else{
+//                                 element.style.background = '#fff'
+//                         }
+//                         if (val == '') {
+//                                 element.removeAttribute("style")
+//                         }
+//                 })
+//                 let clearBtn = document.querySelector('.search-ico-x')
+//                 if (search.value != '') {
+//                         clearBtn.style.display = 'block'
+//                         clearBtn.addEventListener('click', function() {
+//                                 search.value = ''
+//                                 clearBtn.style.display = 'none'
+//                                 let find = document.querySelectorAll('.todo-name')
+//                                 find.forEach(function(element) {
+//                                         element.removeAttribute("style")
+//                                 })
+//                         })
+//                 }
+//         })
+// }
 
 
 setAttributeLine()
