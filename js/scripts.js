@@ -201,6 +201,7 @@ function searchTask() {
 }
 
 
+// COUNT TASKS
 function countTasks() {
     let taskNotCkd = document.querySelector('.task-n-ckd')
     let quantTasks = taskList.length
@@ -213,7 +214,8 @@ function countTasks() {
     
     
     let progressBar = document.querySelector('.progress-bar')
-    let progress = (quantTasksCkd * 278) / quantTasks
+    let progressBx = document.querySelector('.countBx').offsetWidth
+    let progress = (quantTasksCkd * (progressBx - 2)) / quantTasks
     if (quantTasks.length != 0) {
             progressBar.style.width = progress + 'px'
     }else {
