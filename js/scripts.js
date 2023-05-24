@@ -153,14 +153,21 @@ orderTasks()
 
 // OVERFLOW TASKS
 function scroll() {
-    let over = document.querySelector('.listBx')
-    let full = taskList.length
-    if (full >= 10) {
-            alert('Você já têm coisas demais a fazer! Alivie um pouco a pessão!!!')
+    let over = document.querySelector('.listBx').offsetHeight
+    let full = document.querySelector('#list').offsetHeight
+    if (full > over) {
             over.style.overflow = 'scroll'
     }else{
             over.removeAttribute("style")
     }
+    // let over = document.querySelector('.listBx')
+    // let full = taskList.length
+    // if (full >= 10) {
+    //         alert('Você já têm coisas demais a fazer! Alivie um pouco a pessão!!!')
+    //         over.style.overflow = 'scroll'
+    // }else{
+    //         over.removeAttribute("style")
+    // }
 }
 
 
@@ -241,3 +248,18 @@ function calendar() {
     document.getElementById('year').innerHTML = year
 }
 calendar()
+
+
+// NO ADD YESTERDAY DATES
+function noAddYesterdayDates() {
+    let nDate = new Date()
+    let nds = nDate.getDate()
+    let nd = (nds < 10) ? '0' + nds : nds
+    let nms = nDate.getMonth() +1
+    let nm = (nms < 10) ? '0' + nms : nms
+    let ny = nDate.getFullYear()
+    let today = `${ny}-${nm}-${nd}`
+    let newDate = document.querySelector('#new-date')
+    newDate.setAttribute('min', today)
+}
+noAddYesterdayDates()
