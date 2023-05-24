@@ -7,7 +7,7 @@ let monthNameShort = date.toLocaleString(lang, {month: 'short'})
 function menuAdd() {
     let addMenu = document.querySelector('.add-task')
     addMenu.addEventListener('click', function() {
-        let menuActive = document.querySelector('.add-menu')
+        let menuActive = document.querySelector('.card')
         menuActive.classList.toggle('active')
         addMenu.classList.toggle('active')
     })
@@ -95,7 +95,7 @@ add.addEventListener('click', function addTask() {
     // addColors()
     orderTasks()
     document.querySelector('.add-task').classList.remove('active')
-    document.querySelector('.add-menu').classList.remove('active')
+    document.querySelector('.card').classList.remove('active')
     newTask.value = '' 
     newDate.value = ''
 })
@@ -213,10 +213,29 @@ function countTasks() {
     
     
     let progressBar = document.querySelector('.progress-bar')
-    let progress = (quantTasksCkd * 258) / quantTasks
+    let progress = (quantTasksCkd * 278) / quantTasks
     if (quantTasks.length != 0) {
             progressBar.style.width = progress + 'px'
     }else {
             progressBar.style.width = '0'
     }
 }
+
+
+// CALENDAR
+function calendar() {
+    const lang = navigator.language
+
+    let date = new Date()
+    
+    let dayNumber = date.getDate()
+    let dayName = date.toLocaleString(lang, {weekday: 'long'})
+    let monthName = date.toLocaleString(lang, {month: 'long'})
+    let year = date.getFullYear()
+    
+    document.getElementById('monthName').innerHTML = monthName
+    document.getElementById('dayName').innerHTML = dayName
+    document.getElementById('dayNumber').innerHTML = dayNumber
+    document.getElementById('year').innerHTML = year
+}
+calendar()

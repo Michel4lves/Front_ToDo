@@ -1,0 +1,466 @@
+@font-face {
+    font-family:'digital-clock-font';
+    src: url(../fonts/wwDigital.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../img/bg.png);
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    user-select: none;
+    overflow: hidden;
+	perspective: 1000px;
+	transform-style: preserve-3d;
+}
+
+.container header {
+    position: relative;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+	transition: 0.5s;
+    background: #095bd06e;
+    border: 5px solid #74043b;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+}
+
+
+/* LOGO */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 130px; 
+}
+
+.logo .add-task i {
+    font-size: 40px;
+    color: #72c042;
+    background: #fff;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.logo .add-task.active i {
+    transform: rotate(45deg);
+    color: #ff6331;
+}
+
+.container .card.active {
+	transform: rotateY(180deg);
+}
+
+
+/* COUNTER */
+.countBx {
+    width: 280px;
+    height: 50px;
+    border: 1px solid #ffbe1b;
+    background: #ffffffb3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 5px;
+}
+
+.countBx h2 {
+    width: 100%;
+    text-align: center;
+    color: #333;
+    z-index: 1;
+}
+
+.progress-bar {
+    position: absolute;
+    width: 278px;
+    height: 48px;
+    background: rgba(255, 255, 12, 0.5);
+}
+
+
+/* CALENDAR */
+.calendar {
+    position: relative;
+    width: 100px;
+    background: #fff;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 3;
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+}
+
+.calendar #monthName {
+    position: relative;
+    padding: 5px 10px;
+    background: #ff6331;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.calendar #dayName {
+    margin-top: 5px;
+    font-size: 1em;
+    font-weight: 300;
+    color: #999;
+}
+
+.calendar #dayNumber {
+    margin-top: 0px;
+    line-height: 1em;
+    font-size: 2em;
+    font-weight: 700;
+    color: #333;
+}
+
+.calendar #year {
+    margin-bottom: 5px;
+    font-size: 1em;
+    font-weight: 500;
+    color: #999;
+}
+
+
+/* CARD */
+.container .card {
+    position: relative;
+    width: 90%;
+    height: 600px;
+    position: relative;
+	transition: 1s ease-in-out;
+	transform-style: preserve-3d;
+}
+
+.container .card .side {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 5px solid #fff;
+    transform-style: preserve-3d;
+	backface-visibility: hidden;
+}
+
+.container .card .todoBx {
+    border: 5px solid #097cff;
+    background: #ff9b064b;
+    z-index: 2;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    transform: translatez(70px);
+    overflow: visible;
+}
+
+
+/* SEARCH */
+.content .searchBx {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.content .searchBx .search {
+    position: relative;
+    width: 50%;
+    padding: 6px 10px;
+    font-size: 18px;
+    border: 3px solid #8d4194;
+    border-right: none;
+    color: #8d4194;
+    font-weight: 700;
+}
+
+.content .searchBx .search:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.content .searchBx .search-ico,
+.content .searchBx .search-ico-x {
+    font-size: 23px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 3px solid #8d4194;
+    border-left: none;
+    color: #8d4194;
+    background: #fff;
+    font-weight: 700;
+}
+
+.content .searchBx .search-ico-x {
+    position: absolute;
+    right: 25%;
+    border: none;
+    display: none;
+    cursor: pointer;
+}
+
+
+/* LIST */
+.content .listBx {
+    background: #fff;
+    width: 80%;
+    height: 70%;
+    border-radius: 10px;
+    padding: 40px 20px;
+}
+
+.content .listBx ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 30px;
+    margin-bottom: 5px;
+}
+
+.content .listBx ul li .check {
+    position: relative;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    padding: 5px 5px 5px 0;
+}
+
+.content .listBx ul li .check input[type="checkbox"] {
+    position: relative;
+    border: 1px solid #333;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    appearance: none;
+}
+
+.content .listBx ul li input[type="checkbox"]:checked {
+    position: relative;
+    background: #72c042;
+}
+
+.content .listBx ul li .check span {
+    position: absolute;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background: none;
+    text-align: center;
+    line-height: 25px;
+    font-size: 1.3em;
+    color: #fff;
+    transform: scale(0);
+    visibility: hidden;
+    transition: 0.5s;
+}
+
+.content .listBx ul li input[type="checkbox"]:checked ~ span {
+    transform: scale(1);
+    visibility: visible;
+}
+
+.content .listBx ul li .todo-name {
+    width: 50%;
+    font-weight: 400;
+    margin-right: 10px;
+    padding-left: 5px;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.content .listBx ul li .todo-name.task-done {
+    text-decoration: line-through;
+}
+
+.content .listBx ul li .date,
+.content .listBx ul li .date.task-done {
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: 20%;
+    text-align: center;
+    color: #333;
+}
+
+.content .listBx ul li .done,
+.content .listBx ul li .remove {
+    width: 10%;
+    text-align: right;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #72c042;
+    cursor: pointer;
+}
+
+.content .listBx ul li .remove {
+    color: #ff4138;
+    text-align: center;
+}
+
+
+/* ADD MENU */
+.container .card .add-menu {
+    transform: rotateY(180deg);
+    z-index: 0;
+    border: 5px solid #f3a13d;
+    background: #6bc27e81;
+}
+
+.add-menu .content h2 {
+    font-size: 34px;
+    color: #74043b;
+    margin-top: 30px;
+}
+
+.add-menu .content .formBxNew {
+    position: relative;
+    width: 80%;
+    height: 70%;
+    border-radius: 10px;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background: #fff;
+}
+
+.add-menu .content .formBxNew .inputBox {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-menu .content .formBxNew .inputBox input {
+    width: 220px;
+    padding: 5px 0;
+    font-size: 18px;
+    font-weight: 300;
+    color: #333;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #74043b;
+    background: #ffffffbd;
+}
+
+.add-menu .content .formBxNew .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    pointer-events: none;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #333;
+    transform: translateY(-20px);
+}
+
+.add-menu .content .formBxNew #create {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 15px;
+    border: 2px solid #74043b;
+    border-radius: 10px;
+    color: #74043b;
+    background: #ffffffbd;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.add-menu .content .formBxNew #create:hover {
+    background: #f0b9d385;
+}
+
+@media (max-width: 670px) {
+    .container header {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .logo img {
+        width: 80px; 
+    }
+
+    .logo .add-task i {
+        font-size: 32px;
+    }
+
+    .countBx h2 {
+        font-size: 1em;
+    }
+
+    .progress-bar {
+        background: transparent;
+    }
+
+    .calendar #monthName {
+        font-size: 0.8em;
+    }
+    
+    .calendar #dayName {
+        font-size: 0.7em;
+    }
+    
+    .calendar #dayNumber {
+        line-height: 0.8em;
+        font-size: 1.5em;
+    }
+    
+    .calendar #year {
+        font-size: 0.8em;
+    }
+
+    .content .listBx ul li {
+        flex-wrap: wrap;
+    }
+
+    .content .listBx ul li .todo-name {
+        width: 80%;
+    }
+
+    .content .listBx ul li .date,
+    .content .listBx ul li .date.task-done {
+        width: 40%;
+    }
+}
