@@ -11,7 +11,6 @@ https://michel4lves.github.io/Front_ToDo/
 ---
 
 This is a working To Do system that contains:
-- Digital watch;
 - Mini calendar;
 - Task counter;
 - Locator;
@@ -23,6 +22,8 @@ However, as it is a Front End project, it does not have a Back End integration w
 
 ## Functionalities:
 - Add new task;
+
+Just click on the '+' in the logo to access the add form.
 
 <img style="margin: 10px" src="img/screens/tela_2.png" alt="tela_2.png" height="200" />
 <img style="margin: 10px" src="img/screens/tela_3.png" alt="tela_3.png" height="200" />
@@ -69,7 +70,6 @@ https://michel4lves.github.io/Front_ToDo/
 ---
 
 Essa é um sistema To Do funcional que contém:
-- Relógio digital;
 - Mini calendário;
 - Contador de tarefas;
 - Localizador;
@@ -81,6 +81,8 @@ Porém como trata-se de um projeto de Front End, o mesmo não possui uma integra
 
 ## Funcionalidades:
 - Adicionar nova tarefa;
+
+Basta clicar no '+' no logo para acessar o formulário de adição. 
 
 <img style="margin: 10px" src="img/screens/tela_2.png" alt="tela_2.png" height="200" />
 <img style="margin: 10px" src="img/screens/tela_3.png" alt="tela_3.png" height="200" />
