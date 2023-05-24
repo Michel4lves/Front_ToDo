@@ -96,7 +96,7 @@ body {
 
 .progress-bar {
     position: absolute;
-    width: 278px;
+    width: 0px;
     height: 48px;
     background: rgba(255, 255, 12, 0.5);
 }

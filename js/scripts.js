@@ -2,6 +2,8 @@ const lang = navigator.language
 let date = new Date()
 let dayNumber = date.getDate()
 let monthNameShort = date.toLocaleString(lang, {month: 'short'})
+// VALUE OF INITIAL TASK LIST
+let taskList = []
 
 
 function menuAdd() {
@@ -12,7 +14,6 @@ function menuAdd() {
         addMenu.classList.toggle('active')
     })
 }
-menuAdd()
 
 
 function yesterDay() {
@@ -29,25 +30,6 @@ function yesterDay() {
         'lastDayMonthName': lastDayMonthName
     }
 }
-
-
-// VALUE OF INITIAL TASK LIST
-let taskList = [
-    {
-        'task': 'Estudar React Js',
-        'date': `${yesterDay().yesterdayDate.toLocaleDateString().split('/').reverse().join('')}`,
-        'day': `${yesterDay().yesterday}`,
-        'month': `${yesterDay().lastDayMonthName}`,
-        'checked': false
-    },
-    {
-        'task': 'Sessão de cinema',
-        'date': `${date.toLocaleDateString().split('/').reverse().join('')}`, 
-        'day': `${dayNumber}`,
-        'month': `${monthNameShort}`,
-        'checked': false
-    },
-]
 
 
 // SHOW TASK
@@ -69,8 +51,9 @@ function showTasks() {
     })
     let list = document.querySelector('#list')
     list.innerHTML = tasks
+
+    localStorage.setItem('tasks', JSON.stringify(taskList))
 }
-showTasks()
 
 
 // ADD TASK
@@ -91,21 +74,19 @@ add.addEventListener('click', function addTask() {
         'month': date.toLocaleString(lang, {month: 'short'}),
         'checked': false
     })
-    // showTasks()
-    // addColors()
-    orderTasks()
+
     document.querySelector('.add-task').classList.remove('active')
     document.querySelector('.card').classList.remove('active')
     newTask.value = '' 
     newDate.value = ''
+
+    orderTasks()
 })
 
 
 // DELETE TASKS
 function removeTask(index) {
     taskList.splice(index, 1)
-    // showTasks()
-    // addColors()
     orderTasks()
 }
 
@@ -113,12 +94,11 @@ function removeTask(index) {
 // COMPLETE TASKS
 function completeTask(index) {
     taskList[index].checked = !taskList[index].checked
-    // showTasks()
-    // addColors()
     orderTasks()
 }
 
 
+// ADD COLORS AT DATES
 function addColors() {
     let allDays = document.querySelectorAll('.date')
     allDays.forEach((day) => {
@@ -132,7 +112,6 @@ function addColors() {
         }
     })
 }
-addColors()
 
 
 // ORDER TASKS
@@ -148,7 +127,6 @@ function orderTasks() {
     searchTask()
     countTasks()
 }
-orderTasks()
 
 
 // OVERFLOW TASKS
@@ -240,7 +218,6 @@ function calendar() {
     document.getElementById('dayNumber').innerHTML = dayNumber
     document.getElementById('year').innerHTML = year
 }
-calendar()
 
 
 // NO ADD YESTERDAY DATES
@@ -255,4 +232,18 @@ function noAddYesterdayDates() {
     let newDate = document.querySelector('#new-date')
     newDate.setAttribute('min', today)
 }
+
+
+// LOCAL STORAGE DOWNLOAD
+function localStorageTasks() {
+    const tasksLocal = localStorage.getItem('tasks')
+    taskList = JSON.parse(tasksLocal)
+    orderTasks()
+}
+
+
+menuAdd()
 noAddYesterdayDates()
+calendar()
+orderTasks()
+localStorageTasks()
