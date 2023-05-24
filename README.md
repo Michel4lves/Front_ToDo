@@ -18,7 +18,7 @@ This is a working To Do system that contains:
 
 <img style="margin: 10px" src="img/screens/tela_1.png" alt="tela_1.png" height="200" />
 
-However, as it is a Front End project, it does not have a Back End integration with the database. Therefore, if the page is reloaded, all progress will be lost.
+<!-- However, as it is a Front End project, it does not have a Back End integration with the database. Therefore, if the page is reloaded, all progress will be lost. -->
 
 ## Functionalities:
 - Add new task;
@@ -77,7 +77,7 @@ Essa é um sistema To Do funcional que contém:
 
 <img style="margin: 10px" src="img/screens/tela_1.png" alt="tela_1.png" height="200" />
 
-Porém como trata-se de um projeto de Front End, o mesmo não possui uma integração Back End com banco de dados. Por tanto, caso a página seja recarregada, todo progresso será perdido.
+<!-- Porém como trata-se de um projeto de Front End, o mesmo não possui uma integração Back End com banco de dados. Por tanto, caso a página seja recarregada, todo progresso será perdido. -->
 
 ## Funcionalidades:
 - Adicionar nova tarefa;
