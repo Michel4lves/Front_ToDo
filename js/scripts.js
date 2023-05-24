@@ -153,21 +153,14 @@ orderTasks()
 
 // OVERFLOW TASKS
 function scroll() {
-    let over = document.querySelector('.listBx').offsetHeight
-    let full = document.querySelector('#list').offsetHeight
+    let listBx = document.querySelector('.listBx')
+    let over = parseInt(listBx.offsetHeight) - 40
+    let full = parseInt(document.querySelector('#list').offsetHeight)
     if (full > over) {
-            over.style.overflow = 'scroll'
+            listBx.style.overflow = 'scroll'
     }else{
-            over.removeAttribute("style")
+            listBx.removeAttribute("style")
     }
-    // let over = document.querySelector('.listBx')
-    // let full = taskList.length
-    // if (full >= 10) {
-    //         alert('Você já têm coisas demais a fazer! Alivie um pouco a pessão!!!')
-    //         over.style.overflow = 'scroll'
-    // }else{
-    //         over.removeAttribute("style")
-    // }
 }
 
 
