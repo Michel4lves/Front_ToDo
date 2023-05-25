@@ -121,13 +121,11 @@ function addColors() {
 
 // ORDER TASKS
 function orderTasks() {
-    if (taskList) {
-        taskList.sort(function(a,b) {
-            var ca = parseInt(a.date, 10);
-            var cb = parseInt(b.date, 10);
-            return ca - cb
-        })
-    }
+    taskList.sort(function(a,b) {
+        var ca = parseInt(a.date, 10);
+        var cb = parseInt(b.date, 10);
+        return ca - cb
+    })
     showTasks()
     addColors()
     scroll()
@@ -244,9 +242,7 @@ function noAddYesterdayDates() {
 // LOCAL STORAGE DOWNLOAD
 function localStorageTasks() {
     const tasksLocal = localStorage.getItem('tasks')
-    if (taskList) {
-        taskList = JSON.parse(tasksLocal)
-    }
+    taskList = JSON.parse(tasksLocal)
     orderTasks()
 }
 
