@@ -242,8 +242,8 @@ function localStorageTasks() {
 }
 
 
+localStorageTasks()
 menuAdd()
 noAddYesterdayDates()
 calendar()
 orderTasks()
-localStorageTasks()
