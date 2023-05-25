@@ -61,26 +61,31 @@ const add = document.querySelector('#create')
 const newTask = document.querySelector('#new-task')
 const newDate = document.querySelector('#new-date')
 add.addEventListener('click', function addTask() {
-    const lang = navigator.language
-    const date = new Date(
-        newDate.value[0] + newDate.value[1] + newDate.value[2] + newDate.value[3],
-        (newDate.value[5] + newDate.value[6]) - 1,
-        newDate.value[8] + newDate.value[9]
-    )
-    taskList.push({
-        'task': newTask.value,
-        'date': date.toLocaleDateString().split('/').reverse().join(''),
-        'day': date.getDate(),
-        'month': date.toLocaleString(lang, {month: 'short'}),
-        'checked': false
-    })
 
-    document.querySelector('.add-task').classList.remove('active')
-    document.querySelector('.card').classList.remove('active')
-    newTask.value = '' 
-    newDate.value = ''
+    if (newTask.value == '' || newDate.value == '') {
+        alert('Os campos: Título e Data não podem ser vazios.')
+    }else{
+        const lang = navigator.language
+        const date = new Date(
+            newDate.value[0] + newDate.value[1] + newDate.value[2] + newDate.value[3],
+            (newDate.value[5] + newDate.value[6]) - 1,
+            newDate.value[8] + newDate.value[9]
+        )
+        taskList.push({
+            'task': newTask.value,
+            'date': date.toLocaleDateString().split('/').reverse().join(''),
+            'day': date.getDate(),
+            'month': date.toLocaleString(lang, {month: 'short'}),
+            'checked': false
+        })
 
-    orderTasks()
+        document.querySelector('.add-task').classList.remove('active')
+        document.querySelector('.card').classList.remove('active')
+        newTask.value = '' 
+        newDate.value = ''
+
+        orderTasks()
+    }
 })
 
 
@@ -237,7 +242,9 @@ function noAddYesterdayDates() {
 // LOCAL STORAGE DOWNLOAD
 function localStorageTasks() {
     const tasksLocal = localStorage.getItem('tasks')
-    taskList = JSON.parse(tasksLocal)
+    if (taskList) {
+        taskList = JSON.parse(tasksLocal)
+    }
     orderTasks()
 }
 
@@ -245,5 +252,5 @@ function localStorageTasks() {
 localStorageTasks()
 menuAdd()
 noAddYesterdayDates()
-calendar()
 orderTasks()
+calendar()
