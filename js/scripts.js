@@ -121,16 +121,18 @@ function addColors() {
 
 // ORDER TASKS
 function orderTasks() {
-    taskList.sort(function(a,b) {
-        var ca = parseInt(a.date, 10);
-        var cb = parseInt(b.date, 10);
-        return ca - cb
-    })
-    showTasks()
-    addColors()
-    scroll()
-    searchTask()
-    countTasks()
+    if (taskList) {
+        taskList.sort(function(a,b) {
+            var ca = parseInt(a.date, 10);
+            var cb = parseInt(b.date, 10);
+            return ca - cb
+        })
+        showTasks()
+        addColors()
+        scroll()
+        searchTask()
+        countTasks()
+    }
 }
 
 
