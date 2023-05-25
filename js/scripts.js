@@ -4,7 +4,7 @@ let dayNumber = date.getDate()
 let monthNameShort = date.toLocaleString(lang, {month: 'short'})
 // VALUE OF INITIAL TASK LIST
 let taskList = []
-
+let initialTaskList = []
 
 function menuAdd() {
     let addMenu = document.querySelector('.add-task')
@@ -70,14 +70,15 @@ add.addEventListener('click', function addTask() {
             newDate.value[0] + newDate.value[1] + newDate.value[2] + newDate.value[3],
             (newDate.value[5] + newDate.value[6]) - 1,
             newDate.value[8] + newDate.value[9]
-        )
-        taskList.push({
-            'task': newTask.value,
-            'date': date.toLocaleDateString().split('/').reverse().join(''),
-            'day': date.getDate(),
-            'month': date.toLocaleString(lang, {month: 'short'}),
-            'checked': false
-        })
+            )
+            taskList.push({
+                'task': newTask.value,
+                'date': date.toLocaleDateString().split('/').reverse().join(''),
+                'day': date.getDate(),
+                'month': date.toLocaleString(lang, {month: 'short'}),
+                'checked': false
+            })
+        }
 
         document.querySelector('.add-task').classList.remove('active')
         document.querySelector('.card').classList.remove('active')
@@ -85,7 +86,6 @@ add.addEventListener('click', function addTask() {
         newDate.value = ''
 
         orderTasks()
-    }
 })
 
 
@@ -121,16 +121,22 @@ function addColors() {
 
 // ORDER TASKS
 function orderTasks() {
-    taskList.sort(function(a,b) {
-        var ca = parseInt(a.date, 10);
-        var cb = parseInt(b.date, 10);
-        return ca - cb
-    })
-    showTasks()
+    if (taskList) {
+        taskList.sort(function(a,b) {
+            var ca = parseInt(a.date, 10);
+            var cb = parseInt(b.date, 10);
+            return ca - cb
+        })
+        showTasks()
+        countTasks()
+    }else{
+        localStorage.setItem('tasks', JSON.stringify(initialTaskList))
+    }
+    showTasks()////////////
+    countTasks()///////////
     addColors()
     scroll()
     searchTask()
-    countTasks()
 }
 
 
@@ -241,9 +247,11 @@ function noAddYesterdayDates() {
 
 // LOCAL STORAGE DOWNLOAD
 function localStorageTasks() {
-    const tasksLocal = localStorage.getItem('tasks')
-    taskList = JSON.parse(tasksLocal)
-    orderTasks()
+    if (taskList) {
+        const tasksLocal = localStorage.getItem('tasks')
+        taskList = JSON.parse(tasksLocal)
+        orderTasks()
+    }
 }
 
 
