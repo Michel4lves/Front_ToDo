@@ -6,6 +6,8 @@ let monthNameShort = date.toLocaleString(lang, {month: 'short'})
 let taskList = []
 let initialTaskList = []
 
+
+
 function menuAdd() {
     let addMenu = document.querySelector('.add-task')
     addMenu.addEventListener('click', function() {
@@ -127,13 +129,9 @@ function orderTasks() {
             var cb = parseInt(b.date, 10);
             return ca - cb
         })
-        showTasks()
-        countTasks()
-    }else{
-        localStorage.setItem('tasks', JSON.stringify(initialTaskList))
     }
-    showTasks()////////////
-    countTasks()///////////
+    showTasks()
+    countTasks()
     addColors()
     scroll()
     searchTask()
@@ -255,8 +253,16 @@ function localStorageTasks() {
 }
 
 
-localStorageTasks()
+function noTaskInitial() {
+    if (!localStorage.hasOwnProperty('tasks')) {
+        localStorage.setItem('tasks', JSON.stringify(initialTaskList))
+    }
+}
+
+
+noTaskInitial()
 menuAdd()
+localStorageTasks()
 noAddYesterdayDates()
 orderTasks()
 calendar()
