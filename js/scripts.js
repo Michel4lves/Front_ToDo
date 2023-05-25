@@ -127,12 +127,12 @@ function orderTasks() {
             var cb = parseInt(b.date, 10);
             return ca - cb
         })
-        showTasks()
-        addColors()
-        scroll()
-        searchTask()
-        countTasks()
     }
+    showTasks()
+    addColors()
+    scroll()
+    searchTask()
+    countTasks()
 }
 
 
